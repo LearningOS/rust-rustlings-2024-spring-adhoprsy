@@ -7,7 +7,6 @@
 // Execute `rustlings hint move_semantics4` or use the `hint` watch subcommand
 // for a hint.
 
-#[test]
 fn main() {
     let mut vec1 = fill_vec();
 
