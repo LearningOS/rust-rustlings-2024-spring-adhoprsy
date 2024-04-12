@@ -2,7 +2,6 @@
     single linked list merge
     This problem requires you to merge two ordered singly linked lists into one ordered singly linked list
 */
-// I AM NOT DONE
 
 use std::cmp::PartialOrd;
 use std::fmt::{self, Display, Formatter};
@@ -86,8 +85,8 @@ impl<T: PartialOrd> LinkedList<T> {
                     None => ret.start = Some(node1_ptr),
                     Some(end_ptr) => unsafe { (*end_ptr.as_ptr()).next = Some(node1_ptr) },
                 }
-                h1 = unsafe { (*node1_ptr.as_ptr()).next };
                 unsafe {
+                    h1 = (*node1_ptr.as_ptr()).next;
                     (*node1_ptr.as_ptr()).next = None;
                 }
                 ret.end = Some(node1_ptr);
@@ -96,8 +95,8 @@ impl<T: PartialOrd> LinkedList<T> {
                     None => ret.start = Some(node2_ptr),
                     Some(end_ptr) => unsafe { (*end_ptr.as_ptr()).next = Some(node2_ptr) },
                 }
-                h2 = unsafe { (*node2_ptr.as_ptr()).next };
                 unsafe {
+                    h2 = (*node2_ptr.as_ptr()).next;
                     (*node2_ptr.as_ptr()).next = None;
                 }
                 ret.end = Some(node2_ptr);
